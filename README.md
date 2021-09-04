@@ -1,1 +1,1 @@
-# barchart
+# Bar Chart
