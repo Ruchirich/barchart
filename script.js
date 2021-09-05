@@ -92,21 +92,21 @@ let drawBars = () => {
         .attr('y', (item) => {
             return (h - p) - heightScale(item[1])
         })
-        .on('mouseover', (item, index) => {
+        .on('mouseover', function(item, index) {
             let parsed = new Date(item[0])
             let dateString = `${parsed.getFullYear()} - ${monthNames[parsed.getMonth()]}`
-            var posX = d3.event.clientX;
+            var posX = this.getBoundingClientRect();
             
 
-            tooltip.style('top', '-180px')
-                    .style('left', (posX - 450) + 'px')
+            tooltip.style('top', (posX.top - 80) + 'px')
+                    .style('left', (posX.left + (posX.width / 2)) + 'px')
                     .style('white-space', 'pre')
 
             tooltip.transition()
                    .style('visibility', 'visible')    
 
             document.querySelector('#tooltip').setAttribute('data-date', item[0])
-            document.querySelector('#tooltip').textContent = "$" + `${item [1]} Billions\r\n  ${dateString}`
+            document.querySelector('#tooltip').textContent = "$" + `${item [1]} Billion\r\n  ${dateString}`
         })
         .on('mouseout', (item) => {
             tooltip.transition()
