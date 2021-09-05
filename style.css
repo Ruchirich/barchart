@@ -48,10 +48,10 @@ g{
 }
 
 #tooltip{
+    position: fixed;
     margin-top: 10px;
     color: #FEFFFF;
     font-size: 1.5rem;
-    position: relative;
     background-color: #17252A;
     opacity: 0.8;
     border-radius: 20px;
